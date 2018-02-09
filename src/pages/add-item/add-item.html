@@ -17,17 +17,17 @@
 
     <ion-item>
       <ion-label>Item Name</ion-label>
-      <ion-input placeholder="Cricket Balls"></ion-input>
+      <ion-input placeholder="Cricket Balls" [(ngModel)]="item.name"></ion-input>
     </ion-item>
 
     <ion-item>
         <ion-label>Amount</ion-label>
-        <ion-input placeholder="5" type="number"></ion-input>
+        <ion-input placeholder="5" type="number" [(ngModel)]="item.number"></ion-input>
       </ion-item>
 
       <ion-item>
           <ion-label>Price</ion-label>
-          <ion-input placeholder="200" type="number"></ion-input>
+          <ion-input placeholder="200" type="number" [(ngModel)]="item.price"></ion-input>
         </ion-item>
 
       <button ion-button color="secondary" round block>Add</button>
