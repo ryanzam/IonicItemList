@@ -30,5 +30,5 @@
           <ion-input placeholder="200" type="number" [(ngModel)]="item.price"></ion-input>
         </ion-item>
 
-      <button ion-button color="secondary" round block>Add</button>
+      <button ion-button color="secondary" round block (click)="addItem(item)">Add</button>
 </ion-content>

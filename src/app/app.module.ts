@@ -1,3 +1,4 @@
+import { ItemListService } from './../services/item-list/item-list.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -30,7 +31,8 @@ import { FB_CONFIG } from './firebase.credential';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ItemListService,
   ]
 })
 export class AppModule {}

@@ -1,3 +1,4 @@
+import { ItemListService } from './../../services/item-list/item-list.service';
 import { Item } from './../../model/item.model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -23,11 +24,19 @@ export class AddItemPage {
     price: undefined,
   }
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, 
+     private itemService: ItemListService) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad AddItemPage');
+    console.log(' AddItemPage');
+  }
+
+  addItem(item:Item){
+    this.itemService.addItem(item).then(ref => {
+      this.navCtrl.setRoot('HomePage', {key: ref.key})
+    })
+
   }
 
 }
