@@ -18,4 +18,8 @@ export class ItemListService {
         return this.ItemListRef.push(item);
     }
 
+    editITem(item: Item) {
+        return this.ItemListRef.update(item.key, item);
+    }
+
 }
