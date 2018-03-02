@@ -1,4 +1,4 @@
-# Simple App
+# A Simple Full Stack App (Ionic Cordova)
 
 ### For Web, Android, Iphone and Windows.
 
