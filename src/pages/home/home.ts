@@ -15,10 +15,10 @@ import { Observable } from 'rxjs/Observable';
 })
 export class HomePage {
 
-    itemList$: Observable<Item[]>
+    itemList: Observable<Item[]>
 
   constructor(public navCtrl: NavController, private ils: ItemListService) {
-    this.itemList$ = this.ils
+    this.itemList = this.ils
                       .getItemList()
                       .snapshotChanges()
                       .map(changes =>{

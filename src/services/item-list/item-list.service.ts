@@ -22,4 +22,7 @@ export class ItemListService {
         return this.ItemListRef.update(item.key, item);
     }
 
+    deleteItem(Item: Item){
+        return this.ItemListRef.remove(Item.key);
+    }
 }

@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar class="secondary">{{item?.name}}
   </ion-navbar>
 
 </ion-header>
@@ -14,21 +14,24 @@
 
 <ion-content padding>
 
-    <ion-item>
+    <ion-item *ngIf="item">
         <ion-label>Item Name</ion-label>
         <ion-input [(ngModel)]="item.name"></ion-input>
       </ion-item>
   
-      <ion-item>
+      <ion-item *ngIf="item">
           <ion-label>Amount</ion-label>
           <ion-input type="number" [(ngModel)]="item.number"></ion-input>
         </ion-item>
   
-        <ion-item>
+        <ion-item *ngIf="item">
             <ion-label>Price</ion-label>
             <ion-input type="number" [(ngModel)]="item.price"></ion-input>
           </ion-item>
   
         <button ion-button color="secondary" round block (click)="saveItem(item)">Save</button>
+
+        <button ion-button color="danger" round block (click)="deleteItem(item)">Delete</button>
+
 
 </ion-content>

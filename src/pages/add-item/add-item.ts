@@ -2,6 +2,7 @@ import { ItemListService } from './../../services/item-list/item-list.service';
 import { Item } from './../../model/item.model';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { ToastSerice } from '../../services/toast.service';
 
 
 /**
@@ -25,7 +26,7 @@ export class AddItemPage {
   }
 
   constructor(public navCtrl: NavController, public navParams: NavParams, 
-     private itemService: ItemListService) {
+     private itemService: ItemListService, private tst: ToastSerice) {
   }
 
   ionViewDidLoad() {
@@ -34,7 +35,8 @@ export class AddItemPage {
 
   addItem(item:Item){
     this.itemService.addItem(item).then(ref => {
-      this.navCtrl.setRoot('HomePage', {key: ref.key})
+      this.navCtrl.setRoot('HomePage', {key: ref.key});
+      this.tst.displayMsg(`${item.name} Added!!`);
     })
 
   }

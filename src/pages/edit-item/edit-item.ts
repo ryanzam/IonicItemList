@@ -1,3 +1,4 @@
+import { ToastSerice } from './../../services/toast.service';
 import { Item } from './../../model/item.model';
 import { ItemListService } from './../../services/item-list/item-list.service';
 import { Component } from '@angular/core';
@@ -19,10 +20,11 @@ export class EditItemPage {
 
   item : Item
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private ils:ItemListService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private ils:ItemListService,
+                      private tst: ToastSerice) {
   }
 
-  ionViewLoad() {
+  ionViewDidLoad() {
     this.item = this.navParams.get("item");
   }
 
@@ -30,7 +32,17 @@ export class EditItemPage {
     this.ils.editITem(item)
       .then(() => {
         this.navCtrl.setRoot("HomePage");
+        this.tst.displayMsg(`${item.name} Updated!!`);
+
       })
+  }
+
+  deleteItem(item: Item) {
+    this.ils.deleteItem(item).then(()=>{
+      this.navCtrl.setRoot("HomePage");
+      this.tst.displayMsg(`${item.name} Deleted!!`);
+
+    })
   }
 
 }
